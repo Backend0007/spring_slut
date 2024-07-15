@@ -1,9 +1,9 @@
-package slut.com.slut.service;
+package slut.com.slut.service.userService;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import slut.com.slut.repository.UserRepository;
-import slut.com.slut.entity.User;
+import slut.com.slut.repository.userRepository.UserRepository;
+import slut.com.slut.entity.userEntity.User;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -13,19 +13,14 @@ public class UserService {
     private final UserRepository userRepository;
 
 
-
-
-    public int _createUser(User user) {
-        int code;
+    public int _createUserFromService(User user) {
         if(user != null) {
             String _IdUser = UUID.randomUUID().toString();
             user.setIdUser(_IdUser);
             this.userRepository.save(user);
-            code = 10025;
-            return code;
+            return 10000;
         }
-        code = 10024;
-        return code;
+        return 10001;
      // Fin de la methode createUser
     }
 
@@ -33,7 +28,7 @@ public class UserService {
 
 
 
-      public Optional<User> _getUser(String IdUser) {
+      public Optional<User> _getUserFromService(String IdUser) {
         if(IdUser != null) {
             return this.userRepository.findById(IdUser);
         }
