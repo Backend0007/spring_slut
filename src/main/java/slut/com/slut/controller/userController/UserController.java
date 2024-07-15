@@ -1,4 +1,4 @@
-package slut.com.slut.controller;
+package slut.com.slut.controller.userController;
 
 
 import lombok.AllArgsConstructor;

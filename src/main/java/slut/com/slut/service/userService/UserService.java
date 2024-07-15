@@ -25,9 +25,6 @@ public class UserService {
     }
 
 
-
-
-
       public Optional<User> _getUserFromService(String IdUser) {
         if(IdUser != null) {
             return this.userRepository.findById(IdUser);

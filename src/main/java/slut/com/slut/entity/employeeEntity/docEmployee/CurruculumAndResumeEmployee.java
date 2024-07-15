@@ -1,6 +1,7 @@
 package slut.com.slut.entity.employeeEntity.docEmployee;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,6 +23,7 @@ public class CurruculumAndResumeEmployee {
     private String Curruculum;
     private String Resume;
 
+    @JsonBackReference
     @OneToOne
     @JoinColumn(name = "IdEmployee", referencedColumnName = "IdEmployee", foreignKey = @ForeignKey(name = "fk_employee_cvAnResume"))
     private Employee employee;

@@ -1,6 +1,7 @@
 package slut.com.slut.entity.userEntity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,6 +23,7 @@ public class User {
     @Column(unique = true)
     private String IdUser;
 
+    @JsonBackReference
     @OneToOne
     @JoinColumn(name = "IdEmployee", referencedColumnName = "IdEmployee")
     private Employee employee;

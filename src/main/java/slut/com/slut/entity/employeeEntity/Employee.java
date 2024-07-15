@@ -1,6 +1,7 @@
 package slut.com.slut.entity.employeeEntity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -15,7 +16,7 @@ import java.util.List;
 @Setter
 @Getter
 @Entity
-@Table(name = "Employee", uniqueConstraints = @UniqueConstraint(name = "unique_director", columnNames = "directorGeneral"))
+@Table(name = "Employee", uniqueConstraints = @UniqueConstraint(name = "unique_director_email", columnNames = {"directorGeneral", "emailPersonnal","emailProfessionnal"}))
 public class Employee {
 
 
@@ -25,6 +26,11 @@ public class Employee {
     private String firstNameEmployee;
     private String lastNameEmployee;
     private int phoneEmployee;
+
+    @Column(unique = true)
+    private String emailPersonnalEmployee;
+    @Column(unique = true)
+    private String emailProfessionalEmployee;
     private String photoEmployee;
 
     @DateTimeFormat(pattern = "dd/MM/yy")
@@ -44,13 +50,19 @@ public class Employee {
     private String countryOfEmployee;
 
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<DiplomaEmployee> diplomaEmployee;
 
+    @JsonManagedReference
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private CurruculumAndResumeEmployee curruculumAndResumeEmployee;
+
+    @JsonManagedReference
     @OneToOne(mappedBy ="employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private SignatureEmployee signatureEmployee;
+
+    @JsonManagedReference
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private User user;
 

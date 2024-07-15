@@ -1,6 +1,7 @@
 package slut.com.slut.entity.employeeEntity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,6 +22,7 @@ public class SignatureEmployee {
     private String Signature;
 
 
+    @JsonBackReference
     @OneToOne
     @JoinColumn(name = "IdEmployee", referencedColumnName = "IdEmployee", foreignKey = @ForeignKey(name = "fk_imployee_signature"))
     private Employee employee;

@@ -11,7 +11,7 @@ public class MainController {
 
 
            @GetMapping("/test")
-    public String Index() {
+           public String Index() {
 
                return "Fonctionnelle API";
            }
