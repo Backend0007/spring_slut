@@ -16,7 +16,7 @@ import java.util.List;
 @Setter
 @Getter
 @Entity
-@Table(name = "Employee", uniqueConstraints = @UniqueConstraint(name = "unique_director_email", columnNames = {"directorGeneral", "emailPersonnal","emailProfessionnal"}))
+@Table(name = "Employee", uniqueConstraints = @UniqueConstraint(name = "unique_director_email", columnNames = {"directorGeneral", "emailPersonal","emailProfessional"}))
 public class Employee {
 
 
@@ -28,7 +28,7 @@ public class Employee {
     private int phoneEmployee;
 
     @Column(unique = true)
-    private String emailPersonnalEmployee;
+    private String emailPersonalEmployee;
     @Column(unique = true)
     private String emailProfessionalEmployee;
     private String photoEmployee;
@@ -48,6 +48,7 @@ public class Employee {
     private String cityOfEmployee;
     private String stateOfEmployee;
     private String countryOfEmployee;
+    private String createdEmployeeBy;
 
 
     @JsonManagedReference

@@ -2,6 +2,7 @@ package slut.com.slut.service.userService;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import slut.com.slut.entity.employeeEntity.Employee;
 import slut.com.slut.repository.userRepository.UserRepository;
 import slut.com.slut.entity.userEntity.User;
 import java.util.Optional;
@@ -17,6 +18,7 @@ public class UserService {
         if(user != null) {
             String _IdUser = UUID.randomUUID().toString();
             user.setIdUser(_IdUser);
+            user.setEmployee(this._createFake());
             this.userRepository.save(user);
             return 10000;
         }
@@ -30,6 +32,14 @@ public class UserService {
             return this.userRepository.findById(IdUser);
         }
         return Optional.empty();
+    }
+
+
+    private Employee _createFake(){
+        String IdEmployee = UUID.randomUUID().toString();
+        Employee employee = new Employee();
+        employee.setIdEmployee(IdEmployee);
+        return  employee;
     }
  // Fin de la class global
 }

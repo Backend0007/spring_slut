@@ -9,10 +9,10 @@ import java.util.Optional;
 @AllArgsConstructor
 @Service
 public class Is_EmailPersonalExistService {
-    private final Is_EmailPersonalExistRepository is_emailPersonnalExistRepository;
+    private final Is_EmailPersonalExistRepository is_emailPersonalExistRepository;
 
-            public Boolean _IsEmailPersonnalExist(String emailPersonnalEmployee){
-                Optional<Employee> _request = is_emailPersonnalExistRepository.findByEmailPersonnalEmployee(emailPersonnalEmployee);
+            public Boolean _IsEmailPersonalExist(String emailPersonalEmployee){
+                Optional<Employee> _request = is_emailPersonalExistRepository.findByEmailPersonalEmployee(emailPersonalEmployee);
                 return _request.isPresent();
             }
 }

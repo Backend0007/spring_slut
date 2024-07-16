@@ -47,7 +47,7 @@ public class CreateEmployeeService {
             return 20011;
         }
 
-        Boolean IsEmailPersExist = isEmailPersonalExistService._IsEmailPersonnalExist(employee.getEmailPersonnalEmployee());
+        Boolean IsEmailPersExist = isEmailPersonalExistService._IsEmailPersonalExist(employee.getEmailPersonalEmployee());
         if (IsEmailPersExist) {
             return 20003;
         }

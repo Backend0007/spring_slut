@@ -5,5 +5,5 @@ import slut.com.slut.entity.employeeEntity.Employee;
 import java.util.Optional;
 
 public interface Is_EmailPersonalExistRepository extends CrudRepository<Employee, String> {
-    Optional<Employee> findByEmailPersonnalEmployee(String emailProfessionnalEmployee);
+    Optional<Employee> findByEmailPersonalEmployee(String emailProfessionalEmployee);
 }

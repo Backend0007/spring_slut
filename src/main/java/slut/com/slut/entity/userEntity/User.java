@@ -49,5 +49,7 @@ public class User {
     private Boolean conditions;
     private boolean activation;
 
+    private String userCreatedBy;
+
 
 }

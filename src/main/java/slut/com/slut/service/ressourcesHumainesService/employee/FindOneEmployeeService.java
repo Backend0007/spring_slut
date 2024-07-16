@@ -12,9 +12,9 @@ public class FindOneEmployeeService {
     private EmployeeRepository employeeRepository;
 
 
-    public Optional<Employee> _findOneEmployee(String emailProfessional){
-        if(emailProfessional != null) {
-            return employeeRepository.findByEmailProfessionalEmployee(emailProfessional);
+    public Optional<Employee> _findOneEmployeeByEmailPro(String email){
+        if(email != null) {
+            return employeeRepository.findByEmailProfessionalEmployeeOrEmailPersonalEmployee(email);
         }
         return Optional.empty();
     }

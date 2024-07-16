@@ -26,8 +26,8 @@ public class RhController {
 
 
      @GetMapping("search/{email}")
-     public ResponseEntity<Employee> _FindOneEmployee(@PathVariable("email") String _email){
-         Optional<Employee> employee = this.findOneEmployeeService._findOneEmployee(_email);
+     public ResponseEntity<Employee> _FindOneEmployeeByEmailPro(@PathVariable("email") String _email){
+         Optional<Employee> employee = this.findOneEmployeeService._findOneEmployeeByEmailPro(_email);
          return employee.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity
                                                                  .notFound()
                                                                  .build());
