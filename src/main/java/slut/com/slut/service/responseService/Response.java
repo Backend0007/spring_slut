@@ -1,10 +1,8 @@
-package slut.com.slut.service.response;
+package slut.com.slut.service.responseService;
 
 
 
 public class Response {
-
-
     private final int _code;
     private final String _notification;
 
