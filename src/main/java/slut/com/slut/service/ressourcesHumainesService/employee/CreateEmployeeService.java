@@ -13,6 +13,7 @@ import slut.com.slut.repository.ressourcesHumainesRepository.employee.DiplomaEmp
 import slut.com.slut.repository.ressourcesHumainesRepository.employee.EmployeeRepository;
 import slut.com.slut.repository.ressourcesHumainesRepository.employee.SignatureEmployeeRepository;
 import slut.com.slut.repository.userRepository.UserRepository;
+import slut.com.slut.service.isExistanceService.Is_DirectorGeneral_ExistService;
 import slut.com.slut.service.isExistanceService.Is_EmailPersonalExistService;
 import slut.com.slut.service.isExistanceService.Is_EmailProfessionalExistService;
 import slut.com.slut.service.isExistanceService.Is_Employee_ExistService;
@@ -32,6 +33,7 @@ public class CreateEmployeeService {
     private final Is_Employee_ExistService isEmployeeExistService;
     private final Is_EmailProfessionalExistService isEmailProfessionalExistService;
     private final Is_EmailPersonalExistService isEmailPersonalExistService;
+    private final Is_DirectorGeneral_ExistService isDirectorGeneralExistService;
 
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
@@ -55,6 +57,11 @@ public class CreateEmployeeService {
         Boolean IsEmailProExist = isEmailProfessionalExistService._Is_EmailProfessionalExist(employee.getEmailProfessionalEmployee());
         if (IsEmailProExist) {
             return 20033;
+        }
+
+        boolean IsDirectorGeneralExist = isDirectorGeneralExistService._is_DirectorGeneral_Exist(employee.getDirectorGeneral());
+        if (IsDirectorGeneralExist) {
+            return 20055;
         }
 
         String employeeId = UUID.randomUUID().toString();
@@ -91,6 +98,7 @@ public class CreateEmployeeService {
         user.setUsername(employee.getFirstNameEmployee() + "-" + employee.getLastNameEmployee());
         user.setFirstName(employee.getFirstNameEmployee());
         user.setLastName(employee.getLastNameEmployee());
+        user.setEmail(employee.getEmailProfessionalEmployee());
         user.setPhone(employee.getPhoneEmployee());
         user.setPhoto(employee.getPhotoEmployee());
         user.setService(employee.getServiceConcern());

@@ -25,6 +25,8 @@ public class RhController {
      }
 
 
+
+
      @GetMapping("search/{email}")
      public ResponseEntity<Employee> _FindOneEmployeeByEmailPro(@PathVariable("email") String _email){
          Optional<Employee> employee = this.findOneEmployeeService._findOneEmployeeByEmailPro(_email);
@@ -32,6 +34,8 @@ public class RhController {
                                                                  .notFound()
                                                                  .build());
      }
+
+
 
 
      @DeleteMapping("delete/{IdEmployee}")

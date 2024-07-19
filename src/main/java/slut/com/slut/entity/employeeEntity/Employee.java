@@ -16,7 +16,7 @@ import java.util.List;
 @Setter
 @Getter
 @Entity
-@Table(name = "Employee", uniqueConstraints = @UniqueConstraint(name = "unique_director_email", columnNames = {"directorGeneral", "emailPersonal","emailProfessional"}))
+@Table(name = "Employee", uniqueConstraints = @UniqueConstraint(name = "unique_email", columnNames = {"emailPersonal","emailProfessional"}))
 public class Employee {
 
 
@@ -40,8 +40,10 @@ public class Employee {
     private String statusOfemployee;
     private String dateOfRecruitement;
     private String hourOfRecruitement;
-    @Column(unique = true)
-    private boolean directorGeneral;
+
+    @Column(unique = false)
+    private String directorGeneral;
+
     private String streetOfEmployee;
     private String numberStreetOfEmployee;
     private String neighborhoodOfEmployee;

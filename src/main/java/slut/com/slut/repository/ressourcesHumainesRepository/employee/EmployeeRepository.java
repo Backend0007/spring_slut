@@ -10,5 +10,6 @@ public interface EmployeeRepository extends CrudRepository<Employee, String> {
 
     @Query("SELECT e FROM Employee e WHERE e.emailProfessionalEmployee = :email OR e.emailPersonalEmployee = :email")
     Optional<Employee> findByEmailProfessionalEmployeeOrEmailPersonalEmployee(String email);
+    Optional<Employee> findByDirectorGeneral(String directorGeneral);
 
 }
