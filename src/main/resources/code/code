@@ -1,0 +1,8 @@
+30000 = delete succefully.
+30001 = delete unsuccefully.
+20001 = employee empty.
+20011 = employee exist.
+20003 = personalEmail exist.
+20033 = professionalEmail exist.
+20000 = employee created.
+20055 = directeur general existe.
